@@ -16,10 +16,18 @@ const productController = {
         try {
             let result = await validator.validateAsync(req.body)
             let product = await new Product(req.body).save()
-            res.status(201).json({
-                message: 'Product created',
-                success: true,
-            })
+            if(product){
+                res.status(201).json({
+                    message: 'Product created',
+                    success: true,
+                })
+            }else{
+                res.status(404).json({
+                    message: "Product not created",
+                    success: false
+                })
+            }
+            
         } catch (error) {
             res.status(400).json({
                 message: error.message,
@@ -56,25 +64,23 @@ const productController = {
     },
     update: async (req, res) => {
         const { id } = req.params
-        const city = req.body
+        const product = req.body
         try {
             let result = await validator.validateAsync(req.body)
-
-            let newCity = await City.findOneAndUpdate({ _id: id }, city, { new: true })
-            if (city) {
+            let newProduct= await Product.findOneAndUpdate({ _id: id }, product, { new: true })
+            if (newProduct) {
                 res.status(200).json({
-                    message: "Your city is update",
-                    response: newCity,
+                    message: "Your product is update",
+                    response: newProduct,
                     success: true
                 })
             } else {
                 res.status(404).json({
-                    message: "We couldn't update your city",
+                    message: "We couldn't update your product",
                     success: false
                 })
             }
         } catch (error) {
-            console.log(error)
             res.status(400).json({
                 message: error.message,
                 success: false
@@ -84,23 +90,22 @@ const productController = {
     destroy: async (req, res) => {
         const { id } = req.params
         try {
-            let city = await City.findOneAndDelete({ _id: id })
-            if (city) {
+            let product = await Product.findOneAndDelete({ _id: id })
+            if (product) {
                 res.status(200).json({
-                    message: "Your city is deleted",
-                    response: city,
+                    message: "Product deleted",
+                    response: product,
                     success: true
                 })
             } else {
                 res.status(404).json({
-                    message: "We couldn't delete your city",
+                    message: "Product not deleted",
                     success: false
                 })
             }
         } catch (error) {
-            console.log(error)
             res.status(400).json({
-                message: "error",
+                message: error.message,
                 success: false
             })
         }

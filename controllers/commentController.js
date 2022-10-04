@@ -71,13 +71,13 @@ const commentController = {
         if (req.query.user) {
             query.user = req.query.user
         }
-        if (req.query.itineraries) {
-            query.itineraries = req.query.itineraries
+        if (req.query.publications) {
+            query.publications = req.query.publications
         }
         try {
             let comments = await Comment.find(query)
                 .populate("user")
-                .populate("itinerary")
+                .populate("publication")
             res.status(200).json({
                 message: "you get comments",
                 response: comments,
@@ -90,9 +90,9 @@ const commentController = {
         }
     },
     read: async (req, res) => {
-        const { itineraryid } = req.params
+        const { publicationsid } = req.params
         try {
-            let comments = await Comment.find({ itinerary: itineraryid })
+            let comments = await Comment.find({ publication: publicationsid })
                 .populate('user', ['_id', 'lastName', 'name', 'photo'])
             if (comments) {
                 res.status(200).json({

@@ -18,10 +18,10 @@ const publicationSchema = new mongoose.Schema({
         ref: "users",
         required: true
     },
-    fecha: {
-        type: Number,
-        required: true,
-    }
+    date: { 
+        type: Date,
+        required: true
+    },
 })
 
 const Publication = mongoose.model(

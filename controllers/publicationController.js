@@ -1,7 +1,18 @@
 const Publication = require('../models/Publication')
+const Joi = require("joi");
+
+const validator = Joi.object({
+    title: Joi.string().min(4).max(40),
+    description: Joi.string().min(4).max(500),
+    password: Joi.string().strip(),
+    date: Joi.date().less('now'),
+    user: Joi.string()
+});
 
 const publicationController = {
     update: async (req, res) => {
+        let result = await validator.validateAsync(req.body);
+
         const { id } = req.params;
         const publication = req.body;
         try {
@@ -55,6 +66,8 @@ const publicationController = {
         }
     },
     create: async (req, res) => {
+        let result = await validator.validateAsync(req.body);
+
         try {
             let publication = await new Publication(req.body).save()
             if(publication){

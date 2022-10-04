@@ -4,14 +4,14 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        max: 4,
-        min: 40,
+        max: 40,
+        min: 4,
     },
     lastName: {
         type: String,
         required: true,
-        max: 4,
-        min: 40,
+        max: 40,
+        min: 4,
     },
     photo: {
         type: String,

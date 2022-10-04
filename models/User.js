@@ -26,14 +26,14 @@ const userSchema = new mongoose.Schema({
     password: [{
         type: String,
         required: true,
-        max: 3,
-        min: 100
+        max: 100,
+        min: 3
     }],
     country: {
         type: String,
         required: true,
-        max: 4,
-        min: 40,
+        max: 40,
+        min: 4,
     },
     role: { type: String, required: true },
     from: [{ type: String, required: true }],

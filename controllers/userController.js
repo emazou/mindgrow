@@ -153,7 +153,7 @@ const userController = {
                         const token = jwt.sign({ id: user._id }, process.env.KEY_JWT, { expiresIn: 60 * 60 * 24 });
                         res.status(200).json({
                             response: { user: loginUser, token: token },
-                            message: "Welcome to Mytinerary " + user.name,
+                            message: "Welcome to Mind-Grow " + user.name,
                             success: true,
                         });
                     } else {
@@ -176,7 +176,7 @@ const userController = {
                     const token = jwt.sign({ id: user._id }, process.env.KEY_JWT, { expiresIn: 60 * 60 * 24 });
                     res.status(200).json({
                         response: { user: loginUser, token: token },
-                        message: "Welcome to Mytinerary " + user.name,
+                        message: "Welcome to Mind-Grow " + user.name,
                         success: true,
                         mail: user.mail,
                     });

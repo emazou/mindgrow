@@ -49,14 +49,33 @@ const productController = {
         if (req.query.category) {
             const queryString = new RegExp(`^${req.query.category}`)
             query.category = { $regex: queryString, $options: 'ix' }
+            
+        }
+        if (req.query.subcategory) {
+            const queryString = new RegExp(`^${req.query.subcategory}`)
+            query.subcategory = { $regex: queryString, $options: 'i' }       
         }
         try {
             products = await Product.find(query).sort({ price: sort })
-            res.json({
-                message: "You get products",
-                response: products,
-                success: true
-            })
+            if (products) {
+                let subcategories = []
+                if (req.query.category) {
+                    let productsc = await Product.find({category: req.query.category})
+                    subcategories = [... new Set(productsc.map(item => item.subcategory))]
+                }
+                console.log(subcategories)
+                res.json({
+                    message: "You get products",
+                    response: {products: products, subcategories: subcategories},
+                    success: true
+                })
+            }else {
+                res.status(404).json({
+                    message: "We couldn't find your products",
+                    success: false
+                })
+            }
+            
         } catch (error) {
             console.log(error)
             res.status(400).json({

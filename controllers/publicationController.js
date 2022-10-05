@@ -9,6 +9,7 @@ const validator = Joi.object({
     user: Joi.string(),
     category: Joi.string().min(4).max(40),
     url: Joi.string().uri().message("INVALID_URL"),
+    photo: Joi.string().uri().message("INVALID_URL"),
 });
 
 const publicationController = {

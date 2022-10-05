@@ -6,7 +6,9 @@ const validator = Joi.object({
     description: Joi.string().min(4).max(500),
     password: Joi.string().strip(),
     date: Joi.date().less('now'),
-    user: Joi.string()
+    user: Joi.string(),
+    category: Joi.string().min(4).max(40),
+    url: Joi.string().uri().message("INVALID_URL"),
 });
 
 const publicationController = {

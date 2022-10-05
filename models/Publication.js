@@ -18,10 +18,25 @@ const publicationSchema = new mongoose.Schema({
         ref: "users",
         required: true
     },
-    date: { 
+    date: {
         type: Date,
         required: true
     },
+    category: {
+        type: String,
+        required: true,
+        min: 4,
+        max: 40
+    },
+    url: {
+        type: String,
+        required: true,
+        validate: function (value) {
+            if (!value.startsWith('http')) {
+                throw new Error('The URL must start with http')
+            }
+        }
+    }
 })
 
 const Publication = mongoose.model(

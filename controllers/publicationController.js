@@ -9,6 +9,7 @@ const validator = Joi.object({
     user: Joi.string(),
     category: Joi.string().min(4).max(40),
     url: Joi.string().uri().message("INVALID_URL"),
+    photo: Joi.string().uri().message("INVALID_URL"),
 });
 
 const publicationController = {
@@ -92,17 +93,26 @@ const publicationController = {
     },
     readAll: async (req, res) => {
         let query = {}
-        if (req.query.user) {
-            query.user = req.query.user
+        if (req.query.category) {
+            const queryString = new RegExp(`^${req.query.category}`)
+            query.category = { $regex: queryString, $options: 'i' }
         }
         try {
             let publications = await Publication.find(query)
                 .populate("user")
-            res.status(200).json({
-                message: "You get publications",
-                response: publications,
-                success: true
-            })
+            if(publications){
+                res.status(200).json({
+                    message: "You get publications",
+                    response: publications,
+                    success: true
+                })
+            }else{
+                res.status(404).json({
+                    message: "Couldn't find publication",
+                    success: false
+                })
+            }
+            
         }
         catch (error) {
             console.log(err)
@@ -112,12 +122,12 @@ const publicationController = {
     read: async (req, res) => {
         const { id } = req.params;
         try {
-            let publications = await Publication.findOne({ _id: id })
+            let publication = await Publication.findOne({ _id: id })
                 .populate('user', ['_id', 'lastName', 'name', 'photo'])
-            if (publications) {
+            if (publication) {
                 res.status(200).json({
                     message: "You get one publication",
-                    response: publications,
+                    response: publication,
                     success: true
                 })
             } else {

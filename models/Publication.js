@@ -11,7 +11,7 @@ const publicationSchema = new mongoose.Schema({
         type: String,
         required: true,
         min: 4,
-        max: 500
+        max: 3000
     },
     user: {
         type: mongoose.Types.ObjectId,

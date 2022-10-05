@@ -13,17 +13,23 @@ const productSchema = new mongoose.Schema({
         min: 4,
         max: 40
     },
-    description: {
+    subcategory: {
         type: String,
         required: true,
+        min: 4,
+        max: 40
+    },
+    description: {
+        type: String,
+        required: false,
         min: 20,
         max: 700
     },
     price: {
         type: Number,
         required: true,
-        min: 1,
-        max: 500
+        min: 0.01,
+        max: 1000
     },
     stock: {
         type: Number,

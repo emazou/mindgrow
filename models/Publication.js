@@ -36,6 +36,15 @@ const publicationSchema = new mongoose.Schema({
                 throw new Error('The URL must start with http')
             }
         }
+    },
+    photo: {
+        type: String,
+        required: true,
+        validate: function (value) {
+            if (!value.startsWith('http')) {
+                throw new Error('The URL must start with http')
+            }
+        }
     }
 })
 

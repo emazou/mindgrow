@@ -94,7 +94,8 @@ const publicationController = {
     readAll: async (req, res) => {
         let query = {}
         if (req.query.category) {
-            query.category = req.query.category
+            const queryString = new RegExp(`^${req.query.category}`)
+            query.category = { $regex: queryString, $options: 'i' }
         }
         try {
             let publications = await Publication.find(query)

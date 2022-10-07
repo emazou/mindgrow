@@ -9,7 +9,7 @@ class PaymentController {
             return res.json(payment);
         } catch (error) {
             console.log(error);
-            return res.status(500).json({
+            return res.json({
                 error: true,
                 message: 'Failed to create payment'
             })

@@ -5,6 +5,7 @@ const Joi = require('joi')
 const validator = Joi.object({
     name: Joi.string().min(4).max(40),
     category: Joi.string().min(4).max(40),
+    subcategory: Joi.string().min(4).max(40),
     description: Joi.string().min(20).max(700),
     price: Joi.number().integer().min(1).max(500),
     stock: Joi.number().integer().min(0),

@@ -78,7 +78,7 @@ class PaymentService {
             auto_recurring: {
                 frequency: 1,
                 frequency_type: "months",
-                transaction_amount: 10,
+                transaction_amount: 1000,
                 currency_id: "USD",
             },
             back_url: "https://www.google.com",

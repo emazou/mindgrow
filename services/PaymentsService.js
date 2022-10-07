@@ -79,7 +79,7 @@ class PaymentService {
                 frequency: 1,
                 frequency_type: "months",
                 transaction_amount: 1000,
-                currency_id: "USD",
+                currency_id: "ARS",
             },
             back_url: "https://www.google.com",
             payer_email: "hectorgaraybascur@gmail.com"

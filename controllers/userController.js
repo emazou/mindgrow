@@ -254,7 +254,7 @@ const userController = {
             });
         }
     },
-    /* read: async (req, res) => {
+    read: async (req, res) => {
         const { id } = req.params;
         try {
             let user = await User.findOne({ _id: id });
@@ -278,7 +278,8 @@ const userController = {
             });
         }
     },
-    readAll: async (req, res) => {
+
+    /*readAll: async (req, res) => {
         let users;
         let query = {};
 

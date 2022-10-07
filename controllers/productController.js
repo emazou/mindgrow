@@ -40,14 +40,14 @@ const productController = {
         let query = {};
         let sort;
         if (req.query.product) {
-            const queryString = new RegExp(`^${req.query.product}`)
+            const queryString = new RegExp(`${req.query.product}`)
             query.name = { $regex: queryString, $options: 'ix' }
         }
         if (req.query.sort) {
             sort = req.query.sort
         }
         if (req.query.category) {
-            const queryString = new RegExp(`^${req.query.category}`)
+            const queryString = new RegExp(`${req.query.category}`)
             query.category = { $regex: queryString, $options: 'ix' }
             
         }

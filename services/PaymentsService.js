@@ -80,9 +80,9 @@ class PaymentService {
                 frequency_type: "months",
                 transaction_amount: 10,
                 currency_id: "USD",
-                payer_email: "hectorgaraybascur@gmail.com"
             },
-            back_url: "https://www.google.com"
+            back_url: "https://www.google.com",
+            payer_email: "hectorgaraybascur@gmail.com"
         };
         const subscription = await axios.post(url, body, {
             headers: {

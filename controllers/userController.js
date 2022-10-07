@@ -27,6 +27,7 @@ const editValidator = Joi.object({
         tlds: { allow: ["com", "net"] },
     }),
     country: Joi.string().min(4).max(40),
+    _id:Joi.string()
 })
 const userController = {
     signUp: async (req, res) => {
@@ -272,7 +273,7 @@ const userController = {
                     id: user._id,
                     name: user.name,
                     lastName: user.lastName,
-                    email: user.mail,
+                    mail: user.mail,
                     role: user.role,
                     photo: user.photo,
                     country: user.country,

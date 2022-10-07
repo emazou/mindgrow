@@ -18,7 +18,16 @@ const validator = Joi.object({
     from: Joi.string(),
     role: Joi.string().valid("user", "admin"),
 });
-
+const editValidator = Joi.object({
+    name: Joi.string().min(4).max(40),
+    lastName: Joi.string().min(4).max(40),
+    photo: Joi.string().uri().message("INVALID_URL"),
+    mail: Joi.string().email({
+        minDomainSegments: 2,
+        tlds: { allow: ["com", "net"] },
+    }),
+    country: Joi.string().min(4).max(40),
+})
 const userController = {
     signUp: async (req, res) => {
         let { name, lastName, photo, country, mail, password, role, from } =
@@ -232,7 +241,7 @@ const userController = {
     signOut: async (req, res) => {
         const id = req.params.id;
         try {
-            let updated = await User.findOne({_id:id});
+            let updated = await User.findOne({ _id: id });
             if (updated) {
                 updated.logged = false;
                 await updated.save();
@@ -259,9 +268,18 @@ const userController = {
         try {
             let user = await User.findOne({ _id: id });
             if (user) {
+                let profile = {
+                    id: user._id,
+                    name: user.name,
+                    lastName: user.lastName,
+                    email: user.mail,
+                    role: user.role,
+                    photo: user.photo,
+                    country: user.country,
+                }
                 res.status(200).json({
                     message: "You get one user",
-                    response: user,
+                    response: profile,
                     success: true,
                 });
             } else {
@@ -278,26 +296,30 @@ const userController = {
             });
         }
     },
-
-    /*readAll: async (req, res) => {
-        let users;
-        let query = {};
-
-        if (req.query.users) {
-            query.users = req.query.users;
-        }
-
+    editProfile: async (req, res) => {
+        let body = req.body; 
+        let { id } = req.user
         try {
-            users = await User.find(query);
-
-            res.status(200).json({
-                message: "you get all users",
-                response: users,
-                succes: true,
-            });
+            let result = await editValidator.validateAsync(req.body);
+            let user = await User.findOneAndUpdate({ _id: id }, body, { new: true })
+            if (user) {
+                res.status(200).json({
+                    message: "Modified profile",
+                    response: user,
+                    success: true
+                });
+            } else {
+                res.status(404).json({
+                    message: "User not found",
+                    success: false,
+                });
+            }
         } catch (error) {
-            res.status(500).json;
+            res.status(400).json({
+                message: "error",
+                success: false,
+            });
         }
-    } */
+    },
 };
 module.exports = userController;

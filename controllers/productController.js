@@ -5,6 +5,7 @@ const Joi = require('joi')
 const validator = Joi.object({
     name: Joi.string().min(4).max(40),
     category: Joi.string().min(4).max(40),
+    subcategory: Joi.string().min(4).max(40),
     description: Joi.string().min(20).max(700),
     price: Joi.number().integer().min(1).max(500),
     stock: Joi.number().integer().min(0),
@@ -40,14 +41,14 @@ const productController = {
         let query = {};
         let sort;
         if (req.query.product) {
-            const queryString = new RegExp(`^${req.query.product}`)
+            const queryString = new RegExp(`${req.query.product}`)
             query.name = { $regex: queryString, $options: 'ix' }
         }
         if (req.query.sort) {
             sort = req.query.sort
         }
         if (req.query.category) {
-            const queryString = new RegExp(`^${req.query.category}`)
+            const queryString = new RegExp(`${req.query.category}`)
             query.category = { $regex: queryString, $options: 'ix' }
             
         }

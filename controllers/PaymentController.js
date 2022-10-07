@@ -16,18 +16,18 @@ class PaymentController {
         }
     }
 
-    // async getSubscriptionLink(res, req) {
-    //     try {
-    //         const subscription = await this.subscriptionService.createSubscription();
-    //         return res.json(subscription);
-    //     } catch (error) {
-    //         console.log(error);
-    //         return res.status(500).json({
-    //             error: true,
-    //             message: 'Failed to create subscription'
-    //         })
-    //     }
-    // }
+    async getSubscriptionLink(req, res) {
+        try {
+            const subscription = await this.subscriptionService.createSubscription();
+            return res.json(subscription);
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                error: true,
+                message: 'Failed to create subscription'
+            })
+        }
+    }
 }
 
 module.exports = PaymentController;

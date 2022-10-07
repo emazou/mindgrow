@@ -70,5 +70,26 @@ class PaymentService {
         return payment.data
 
     }
+    async createSubscription() {
+        const url = "https://api.mercadopago.com/preapproval"
+
+        const body = {
+            reason: "suscripcion ej",
+            auto_recurring: {
+                frequency: 1,
+                frequency_type: "months",
+                transaction_amount: 10,
+                currency_id: "USD"
+            },
+            back_url: "https://www.google.com"
+        };
+        const subscription = await axios.post(url, body, {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
+            }
+        });
+        return subscription.data
+    };
 }
 module.exports = PaymentService;

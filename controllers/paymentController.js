@@ -53,6 +53,7 @@ const paymentController = {
                     failure: `${process.env.BACKEND_URL}/payments/failure`,
                 },
                 auto_return: "approved",
+                statement_descriptor: "MINDGROW",
             };
 
             const mercadopagoResponse = await axios.post('https://api.mercadopago.com/checkout/preferences', payload, {

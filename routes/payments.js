@@ -1,17 +1,12 @@
-var express = require('express')
-var router = express.Router()
-// let passport = require("../config/passport");
+const express = require('express')
+const router = express.Router()
+const passport = require("../config/passport");
 
-const PaymentController = require('../controllers/PaymentController');
-const PaymentService = require('../services/PaymentsService');
-const PaymentInstance = new PaymentController(new PaymentService());
+const { create, confirmPayment, failedPayment } = require('../controllers/paymentController');
 
-router.get('/', function (req, res) {
-    PaymentInstance.getPaymentLink(req, res);
-});
-
-router.get('/subscription', function (req, res) {
-    PaymentInstance.getSubscriptionLink(req, res);
-});
+router.post('/', passport.authenticate("jwt", { session: false }), create);
+router.get('/success', confirmPayment);
+router.get('/failure', failedPayment);
 
 module.exports = router
+

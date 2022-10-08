@@ -5,6 +5,19 @@ const Product = require('../models/Product')
 const paymentController = {
     async confirmPayment(req, res) {
         console.log('Payment confirmed', req.query);
+        const id = req.query.preference_id;
+        const mercadopagoResponse = await axios.post('https://api.mercadopago.com/checkout/preferences/' + id, payload, {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
+            }
+        });
+        const items = mercadopagoResponse.data.items;
+        for (const item of items) {
+            const { quantity, id } = item;
+            await Product.findByIdAndUpdate(id, { stock: { $inc: -quantity } });
+        }
+
         return res.redirect(303, `${process.env.FRONTEND_URL}/payment-success`);
     },
     async failedPayment(req, res) {

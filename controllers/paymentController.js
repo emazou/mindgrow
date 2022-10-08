@@ -15,7 +15,7 @@ const paymentController = {
         const items = mercadopagoResponse.data.items;
         for (const item of items) {
             const { quantity, id } = item;
-            await Product.findByIdAndUpdate(id, { stock: { $inc: -quantity } });
+            await Product.findByIdAndUpdate(id, { $inc: { stock: -quantity } });
         }
 
         return res.redirect(303, `${process.env.FRONTEND_URL}/payment-success`);

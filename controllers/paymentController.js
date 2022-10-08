@@ -21,11 +21,12 @@ const paymentController = {
                 const product = await Product.findById(item.id);
                 products.push({
                     title: product.name,
-                    description: product.description,
-                    category_id: product.subcategory,
+                    category_id: "others",
                     quantity: item.quantity,
                     currency_id: "USD",
                     unit_price: product.price,
+                    picture_url: product.photo,
+                    id: item.id
                 });
             }
 
@@ -49,7 +50,7 @@ const paymentController = {
             });
 
             console.log(mercadopagoResponse);
-            return res.redirect(303, mercadopagoResponse.data.init_point);
+            return res.status(200).json({ url: mercadopagoResponse.data.init_point, success: true });
         } catch (error) {
             console.log(error)
             return res.status(500).json({

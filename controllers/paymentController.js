@@ -26,7 +26,7 @@ const paymentController = {
     },
     async create(req, res) {
         try {
-            const { email } = req.user;
+            const { mail } = req.user;
             const { items } = req.body;
             // sacar billing address y agregarlo en payload
             const products = [];
@@ -46,7 +46,7 @@ const paymentController = {
             const payload = {
                 items: products,
                 payer: {
-                    email,
+                    mail,
                 },
                 back_urls: {
                     success: `${process.env.BACKEND_URL}/payments/success`,

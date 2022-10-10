@@ -1,30 +1,30 @@
-const Review = require('../models/Review')
+const Question = require('../models/Question')
 const Joi = require('joi')
 
 const validator = Joi.object({
-    review: Joi.string().min(4).max(300).required(),
+    question: Joi.string().min(4).max(300).required(),
     user: Joi.required(),
     product: Joi.required()
 })
-const reviewController = {
+const questionController = {
     readAll: async (req, res) => {
-        let query = {}
+        let query ={}
         if (req.query.product) {
             query.product = req.query.product
         }
         try {
-            let reviews = await Review.find(query)
-                .populate('user', { name: 1, lastName: 1, photo: 1, country: 1 })
+            let questions = await Question.find(query)
+                .populate('user', { _id: 1, name: 1, lastName: 1, photo: 1, country: 1 })
                 .populate('product')
-            if (reviews) {
+            if (questions) {
                 res.status(200).json({
-                    message: 'You get reviews',
-                    response: reviews,
+                    message: 'You get questions',
+                    response: questions,
                     success: true
                 })
             } else {
                 res.status(404).json({
-                    message: "Could't find reviews",
+                    message: "Could't find questions",
                     success: false
                 })
             }
@@ -36,38 +36,38 @@ const reviewController = {
         }
     },
     create: async (req, res) => {
-        const { review, product } = req.body
+        const { question, product } = req.body
         const user = req.user.id
         console.log(user)
         try {
-            let result = await validator.validateAsync({ review, user, product });
-            await new Review({ review, user, product }).save()
+            let result = await validator.validateAsync({ question, user, product });
+            await new Question({ question, user, product }).save()
             res.status(201).json({
-                message: 'Review created',
+                message: 'Question created',
                 success: true
             })
         } catch (error) {
             console.log(error.message)
             res.status(400).json({
-                message: 'Review not created',
+                message: 'Question not created',
                 success: false
             })
         }
     },
     update: async (req, res) => {
         const { id } = req.params
-        const { review } = req.body
+        const { question } = req.body
         try {
-            let Reviewdb = await Review.findOneAndUpdate({ _id: id }, {review}, { new: true })
-            if (Reviewdb) {
+            let questiondb = await Question.findOneAndUpdate({ _id: id }, { question }, { new: true })
+            if (questiondb) {
                 res.status(200).json({
-                    message: 'You modified one review',
-                    response: Reviewdb,
+                    message: 'You modified one question',
+                    response: questiondb,
                     success: true
                 })
             } else {
                 res.status(404).json({
-                    message: "Could't find review",
+                    message: "Could't find question",
                     success: false
                 })
             }
@@ -81,15 +81,15 @@ const reviewController = {
     destroy: async (req, res) => {
         const { id } = req.params
         try {
-            let review = await Review.findOneAndDelete({ _id: id })
-            if (review) {
+            let question = await Question.findOneAndDelete({ _id: id })
+            if (question) {
                 res.status(200).json({
-                    message: 'You deleted one review',
+                    message: 'You deleted one question',
                     success: true
                 })
             } else {
                 res.status(404).json({
-                    message: "Could't find review",
+                    message: "Could't find question",
                     success: false
                 })
             }
@@ -101,4 +101,4 @@ const reviewController = {
         }
     },
 }
-module.exports = reviewController
+module.exports = questionController

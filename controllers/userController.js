@@ -214,7 +214,6 @@ const userController = {
                 });
             }
         } catch (error) {
-            console.log(error);
             res.status(400).json({
                 message: "Sign In error, try again later",
                 success: false,

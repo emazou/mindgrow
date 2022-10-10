@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
         min: 4,
-        max: 40
+        max: 50
     },
     category: {
         type: String,
@@ -23,7 +23,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: false,
         min: 20,
-        max: 700
+        max: 3000
     },
     price: {
         type: Number,

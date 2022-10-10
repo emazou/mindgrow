@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('../config/passport')
-const { create, readAll, update, destroy } = require('../controllers/reviewController')
+const { create, readAll, update, destroy } = require('../controllers/questionController')
 
 router.get('/', readAll)
 router.post('/', passport.authenticate('jwt', {session:false}), create)

@@ -5,7 +5,7 @@ const validator = Joi.object({
     title: Joi.string().min(4).max(40),
     description: Joi.string().min(4).max(500),
     password: Joi.string().strip(),
-    date: Joi.date().less('now'),
+    date: Joi.date(),
     user: Joi.string(),
     category: Joi.string().min(4).max(40),
     url: Joi.string().uri().message("INVALID_URL"),
@@ -14,11 +14,11 @@ const validator = Joi.object({
 
 const publicationController = {
     update: async (req, res) => {
-        let result = await validator.validateAsync(req.body);
 
         const { id } = req.params;
         const publication = req.body;
         try {
+            let result = await validator.validateAsync(req.body);
             let newPublication = await Publication.findOneAndUpdate(
                 { _id: id },
                 publication,
@@ -69,9 +69,8 @@ const publicationController = {
         }
     },
     create: async (req, res) => {
-        let result = await validator.validateAsync(req.body);
-
         try {
+            let result = await validator.validateAsync(req.body);
             let publication = await new Publication(req.body).save()
             if(publication){
                 res.status(201).json({

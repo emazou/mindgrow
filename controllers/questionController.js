@@ -8,13 +8,13 @@ const validator = Joi.object({
 })
 const questionController = {
     readAll: async (req, res) => {
-        let query = {}
+        let query ={}
         if (req.query.product) {
             query.product = req.query.product
         }
         try {
             let questions = await Question.find(query)
-                .populate('user', { name: 1, lastName: 1, photo: 1, country: 1 })
+                .populate('user', { _id: 1, name: 1, lastName: 1, photo: 1, country: 1 })
                 .populate('product')
             if (questions) {
                 res.status(200).json({
@@ -43,13 +43,13 @@ const questionController = {
             let result = await validator.validateAsync({ question, user, product });
             await new Question({ question, user, product }).save()
             res.status(201).json({
-                message: 'question created',
+                message: 'Question created',
                 success: true
             })
         } catch (error) {
             console.log(error.message)
             res.status(400).json({
-                message: 'question not created',
+                message: 'Question not created',
                 success: false
             })
         }
@@ -58,7 +58,7 @@ const questionController = {
         const { id } = req.params
         const { question } = req.body
         try {
-            let questiondb = await Question.findOneAndUpdate({ _id: id }, {question}, { new: true })
+            let questiondb = await Question.findOneAndUpdate({ _id: id }, { question }, { new: true })
             if (questiondb) {
                 res.status(200).json({
                     message: 'You modified one question',

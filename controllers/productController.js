@@ -3,6 +3,15 @@ const Product = require('../models/Product')
 const Joi = require('joi')
 
 const validator = Joi.object({
+    name: Joi.string().min(4).max(50).required(),
+    category: Joi.string().min(4).max(40).required(),
+    subcategory: Joi.string().min(4).max(40).required(),
+    description: Joi.string().min(20).max(3000).required(),
+    price: Joi.number().min(1).max(500).required(),
+    stock: Joi.number().integer().min(0).required(),
+    photo: Joi.string().uri().message('INVALID_URL').required(),
+})
+const validator2 = Joi.object({
     _id: Joi.string().required(),
     name: Joi.string().min(4).max(50).required(),
     category: Joi.string().min(4).max(40).required(),
@@ -114,7 +123,7 @@ const productController = {
         const product = req.body
         console.log(product)
         try {
-            let result = await validator.validateAsync(req.body)
+            let result = await validator2.validateAsync(req.body)
             let newProduct = await Product.findOneAndUpdate({ _id: id }, product, { new: true })
             if (newProduct) {
                 res.status(200).json({

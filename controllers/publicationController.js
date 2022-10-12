@@ -2,14 +2,23 @@ const Publication = require('../models/Publication')
 const Joi = require("joi");
 
 const validator = Joi.object({
-    title: Joi.string().min(4).max(40),
-    description: Joi.string().min(4).max(500),
-    password: Joi.string().strip(),
-    date: Joi.date(),
-    user: Joi.string(),
-    category: Joi.string().min(4).max(40),
-    url: Joi.string().uri().message("INVALID_URL"),
-    photo: Joi.string().uri().message("INVALID_URL"),
+    title: Joi.string().min(4).max(100).required(),
+    description: Joi.string().min(4).required(),
+    date: Joi.date().required(),
+    user: Joi.string().required(),
+    category: Joi.string().min(4).max(40).required(),
+    url: Joi.string().uri().message("INVALID_URL").required(),
+    photo: Joi.string().uri().message("INVALID_URL").required(),
+});
+
+const validator2 = Joi.object({
+    _id: Joi.string().required(),
+    title: Joi.string().min(4).max(100).required(),
+    description: Joi.string().min(4).required(),
+    date: Joi.date().required(),
+    category: Joi.string().min(4).max(40).required(),
+    url: Joi.string().uri().message("INVALID_URL").required(),
+    photo: Joi.string().uri().message("INVALID_URL").required(),
 });
 
 const publicationController = {
@@ -17,8 +26,9 @@ const publicationController = {
 
         const { id } = req.params;
         const publication = req.body;
+        console.log(req.body)
         try {
-            let result = await validator.validateAsync(req.body);
+            let result = await validator2.validateAsync(req.body);
             let newPublication = await Publication.findOneAndUpdate(
                 { _id: id },
                 publication,

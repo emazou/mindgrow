@@ -2,7 +2,7 @@ const Publication = require('../models/Publication')
 const Joi = require("joi");
 
 const validator = Joi.object({
-    title: Joi.string().min(4).max(40).required(),
+    title: Joi.string().min(4).max(100).required(),
     description: Joi.string().min(4).required(),
     date: Joi.date().required(),
     user: Joi.string().required(),
@@ -13,10 +13,9 @@ const validator = Joi.object({
 
 const validator2 = Joi.object({
     _id: Joi.string().required(),
-    title: Joi.string().min(4).max(40).required(),
+    title: Joi.string().min(4).max(100).required(),
     description: Joi.string().min(4).required(),
     date: Joi.date().required(),
-    user: Joi.string().required(),
     category: Joi.string().min(4).max(40).required(),
     url: Joi.string().uri().message("INVALID_URL").required(),
     photo: Joi.string().uri().message("INVALID_URL").required(),

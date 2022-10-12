@@ -5,7 +5,7 @@ const publicationSchema = new mongoose.Schema({
         type: String,
         required: true,
         min: 4,
-        max: 40
+        max: 100
     },
     description: {
         type: String,

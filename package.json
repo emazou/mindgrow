@@ -24,6 +24,8 @@
     "nodemailer": "^6.8.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
-    "pug": "2.0.0-beta11"
+    "pdfkit": "^0.13.0",
+    "pug": "2.0.0-beta11",
+    "styliner": "^1.1.0"
   }
 }

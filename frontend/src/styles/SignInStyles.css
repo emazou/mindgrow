@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.SignInPage{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.Form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A7D7C5;
+    height: 40rem;
+    width: 30rem;
+    border-radius: 0rem 1rem 1rem 0rem;
+}
+.signInInputContainer{
+    width: 90%;
+}
+
+.signIn-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 10pt;
+    gap: 1rem;
+}
+
+.signIn-input label {
+   align-self: flex-start;
+   padding-left: 1rem;
+   font-size: 1rem;
+}
+
+.signIn-input input{
+    padding: .5rem .5rem .5rem 2.5rem;
+    border-radius: 3rem;
+    border: none;
+    margin-bottom: 2.5rem;
+    width: 90%;
+}
+
+.signIn-img img{
+    height: 40rem;
+    width: 30rem;
+    border-radius: 1rem 0rem 0rem 1rem;
+    object-fit: cover;
+}
+
+.Form-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #F9F8EB; 
+    width: 100%;
+}
+
+.Form-user button{
+    cursor: pointer;
+    background-color: #77628C;
+    padding: .5rem 2rem .5rem 2rem;
+    border-radius: .4rem;
+    border: none;
+    font-size: 11pt;
+    margin-bottom: 1.4rem;
+    font-weight: 600;
+}
+.Form-user button:hover {
+    background-color: #5c8d89;
+    color: #F9F8EB;;
+  }
+.signin{
+    border-radius: 40%;
+}
+
+/*media query*/
+@media screen and (max-width:1230px){
+    .Form {
+
+        height: 40rem;
+    width: 90%;
+
+    } 
+
+    .signIn-input input{
+        width: 90%;
+
+    }
+
+}
+
+@media screen and (max-width:1024px){
+    .signIn-img img{
+        display:none;
+    }
+
+    .Form {
+        border-radius: 1rem;
+    }
+    .Form-user{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+    }
+    .signInInputContainer{
+        width: 90%;
+    }
+    .signIn-input input{
+        width: 90%;
+
+    }
+
+}
+
+@media screen and (max-width:452px){
+    .signIn-input input{
+        width: 90%;
+    }
+   
+}
+
+@media screen and (max-width:320px) {
+    .signIn-img img{
+        display:none;
+    }
+    
+    .Form {
+
+        height: 35rem;
+    width: 20rem;
+
+    }
+
+    
+
+}
+
+

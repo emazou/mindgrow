@@ -1,0 +1,47 @@
+.modal-open-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #5C8D89;
+    width: 70%;
+    height: 10rem;
+    border-radius: .5rem;
+    gap: 1rem;
+}
+.modal-open-container p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.modal-open-container div {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.cancel-btn {
+    background-color: rgb(253, 93, 93);
+}
+
+.submit-btn {
+    background-color: #74B49B;
+}
+
+.cancel-btn, .submit-btn {
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .3rem .5rem;
+    border-radius: .3rem;
+}
+.cancel-btn:hover{
+    background-color: rgb(240, 65, 65);
+}
+.submit-btn:hover {
+    background-color: #67a48d;
+}
+@media screen and (min-width: 768px ){
+    .modal-open-container{
+        width: 40%;
+    }
+}

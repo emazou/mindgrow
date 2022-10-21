@@ -1,0 +1,27 @@
+.DoctorRabbit {
+    position: absolute;
+    top: 60vh;
+    right: 0;
+    display: flex;
+    align-items: center;
+    margin: 2rem 2rem 0 0 ; 
+    justify-content: flex-end;
+}
+
+.DoctorRabbit input{
+    padding: 1rem;
+    border-radius: 1rem 1rem 1rem 1rem;
+    border: none;
+    background-color: #F9F8EB;
+    font-size: 12pt;
+    text-align: right;
+    width: 20rem;
+}
+
+.DoctorRabbit img{
+    height: 3rem;
+    background-color: #A7D7C5;
+    border-radius: 100%;
+    top: 29rem;
+    left: 66rem;
+}

@@ -1,0 +1,65 @@
+.container-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #5C8D89;
+  width: 90%;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
+  min-height: 90vh;
+  overflow-y: scroll;
+  overflow: hidden;
+}
+.label-modal{
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+    color: white;
+}
+.input-edit{
+  width: 20rem;
+  border-radius: 1rem;
+  border: none;
+  color: black;
+  padding: 0.2rem 1rem;
+}
+textarea {
+  width: 20rem;
+  border-radius: 1rem;
+  padding: 0.2rem 1rem;
+  border: none;
+  color: black;
+  height: auto;
+}
+textarea::-webkit-scrollbar {
+  width: 0.3rem;
+  height: 1rem;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: none;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #5c8d89;
+  border-radius: 1.2rem;
+}
+.container-edit div{
+    display: flex;
+    gap: 2rem;
+}
+@media screen and (min-width: 600px){
+    .container-edit{
+        width: 70%;
+    }
+}
+@media screen and (min-width: 1024px){
+    .container-edit{
+        width: 50%;
+    }
+    .input-edit, textarea{
+        width: 30rem;
+    }
+}

@@ -1,0 +1,29 @@
+.container-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: 87vh;
+    gap: 3rem;
+}
+.container-message h2{
+    text-align: center;
+    font-size: 2rem;
+    color: #74B49B;
+}
+.container-message button{
+    cursor: pointer;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    font-size: 12pt;
+    background-color: #77628c;
+    border: 1px solid #77628c;
+    color: #f9f8eb;
+    font-weight: 500;
+}
+.container-message button:hover{
+    background-color: #f9f8eb;
+    color: #77628c;
+}

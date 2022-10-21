@@ -1,0 +1,142 @@
+.body-admin-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* background-color: brown; */
+    margin-bottom: 1.5rem;
+}
+
+.body-new-product{
+    display: flex;
+    /* background-color: blue; */
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+    flex-wrap: wrap;
+}
+
+.form-new-product button{
+    margin-top: 1rem;
+    cursor: pointer;
+    background-color: #77628C;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    border-radius: 3rem;
+    border: none;
+    font-size: 10pt;
+    font-weight: 600;
+    color: white;
+}
+
+.form-new-product button:hover{
+    background-color: #5c8d89;
+    color: #F9F8EB;
+}
+
+.container-form-new-product{
+    display: flex;
+    background-color: #A7D7C5;
+    margin: 1rem 0.6rem 0.6rem 0.6rem;
+    padding: 1rem 0.5rem ;
+    min-height: 26rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.5rem;
+}
+
+.form-new-product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+    width: 95%;
+    height: 100%;
+}
+
+.form-label-new-product{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5px;
+}
+
+.form-label-new-product input{
+    border-radius: 1rem;
+    border: none;
+    padding: 3px 3px 3px 12px;
+    width: 100%;
+}
+
+.container-dad-new-product{
+    /* background-color: chartreuse; */
+    width: 100%;
+}
+
+.btn-select{
+    /* background-color: darkorange; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-select button{
+    padding: 0 0.7rem;
+}
+
+.title-new-product{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-new-product h2{
+    color: #74B49B;
+    border-bottom: 1px solid #74B49B;
+    width: 90%;
+    padding: 0.5rem;
+}
+
+.title-new-product-select{
+    text-align: center;
+}
+
+.container-forms-new-product{
+    display: flex;
+    /* background-color: darkgreen; */
+    align-items: center;
+    justify-content: center;
+}
+
+.container-grandfather-new-product{
+    width: 100%;
+    min-height: 87vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+}
+
+.form-children-new-product{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.container-input-new-product{
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .body-new-product{
+        width: 96%;
+    }
+}

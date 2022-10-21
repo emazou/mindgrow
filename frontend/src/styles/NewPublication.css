@@ -1,0 +1,119 @@
+.container-dad-publication{
+    /* background-color: blue; */
+    width: 50%;
+}
+
+.container-header-new-publication{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    gap: 10px;
+}
+
+.container-header-new-publication h3{
+    margin-bottom: 0;
+    color: #554b5f;
+    font-weight: bold;
+}
+
+.container-header-new-publication img{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.container-form-publication{
+    background-color: #A7D7C5;
+    width: 100%;
+    padding: 1rem 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1.5rem;
+}
+.form-new-publication{
+    display: flex;
+    flex-direction: column;
+}
+.container-input-publication{
+    display: flex;
+    width: 100%;
+    /* background-color: blueviolet; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-input-publication label{
+    width: 49%;
+    margin-bottom: 5px;
+}
+
+.container-input-publication input{
+    width: 100%;
+    border-radius: 1rem;
+    border: none;
+    padding: 3px 3px 3px 12px;
+}
+
+.text-tarea{
+    height: 7rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 5px 12px 5px 12px;
+    height: 7rem !important;
+    border-radius: 1rem !important;
+    border: none !important;
+    padding: 5px 12px 5px 12px !important;
+    width: 100% !important;
+}
+
+.btn-new-publication{
+    margin-top: 0.8rem;
+    margin-bottom: .5rem;
+    margin-left: 3px;
+    cursor: pointer;
+    background-color: #77628C;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    border-radius: 3rem;
+    border: none;
+    font-size: 10pt;
+    font-weight: 600;
+    color: white;
+    align-self: center;
+}
+
+.btn-new-publication:hover{
+    background-color: #5c8d89;
+    color: #F9F8EB;
+}
+
+.container-select-category{
+    /* background-color: aqua; */
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container-select-category label{
+    margin-bottom: 0;
+}
+
+.select-category{
+    height: 30px;
+    margin-bottom: 9px;
+    margin-top: 0;
+}
+
+.select-category{
+    border-radius: 1rem;
+    padding-left: 5px;
+    border: none;
+}
+
+@media screen and (max-width: 768px) {
+    .container-dad-publication{
+        width: 98%;
+        width: 98% !important;
+    }
+}

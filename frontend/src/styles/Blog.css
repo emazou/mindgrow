@@ -1,0 +1,338 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+}
+
+/*Category card*/
+
+/* Hero Unit ----------------------*/
+
+.hero-unit {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.span-front {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  width: 94%;
+  height: 94%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3% 4%;
+  gap: 0.5rem;
+}
+
+.span-front svg {
+  width: 2rem;
+  height: 2rem;
+  fill: white;
+}
+.span-front img {
+  width: 2rem;
+  height: 2rem;
+}
+.cat-des {
+  font-size: 10pt;
+  color: #f9f8eb;
+  text-align: center;
+}
+.categories-title {
+  font-size: 15pt;
+  color: #f9f8eb;
+  font-weight: 500;
+}
+
+/* Buttons Card Flipper*/
+.flip-cards {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flip-cards li {
+  width: 15rem;
+  height: 180px;
+  padding: 1% 1%;
+  border-radius: 1rem;
+}
+
+.flip-cards li:hover {
+  cursor: pointer;
+  transform: rotate(3%);
+}
+
+/* Button Card Colors */
+.flip-cards .panel {
+  border: none;
+}
+
+/* 1card */
+.flip-cards li:first-child > .button {
+  border-radius: 0.8rem;
+  background-color: #5c8d89;
+}
+.flip-cards li:first-child > .button:hover {
+  box-shadow: 6px 8px 6px -6px rgb(142, 142, 146);
+}
+
+/* 2card */
+.flip-cards li:nth-child(2) > .button {
+  border-radius: 0.8rem;
+  background-color: rgba(65, 175, 187, 0.879);
+}
+.flip-cards li:nth-child(2) > .button:hover {
+  box-shadow: 6px 8px 6px -6px rgb(142, 142, 146);
+}
+
+/* 3card */
+.flip-cards li:last-child > .button {
+  border-radius: 0.8rem;
+  background-color: #77628C;
+}
+.flip-cards li:last-child > .button:hover {
+  box-shadow: 6px 8px 6px -6px rgb(142, 142, 146);
+}
+
+@media screen and (max-width: 35em) {
+  .flip-cards li {
+    width: 100%;
+    font-size: 1rem;
+    height: 12rem;
+  }
+
+  .hub-info p {
+    font-size: 10pt;
+  }
+}
+
+/* <-------------------------------------------> */
+
+.mission-Container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #74b49b4c;
+  padding: 1.5rem;
+  margin: 1rem 5%;
+  border-radius: 0.8rem;
+  gap: 0.5rem;
+  justify-self: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.mission-Container h1 {
+  text-align: center;
+  font-size: 30pt;
+  color: #5c8d89;
+}
+
+.mission-Container p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #554b5f;
+  text-align: justify;
+}
+
+.cat-title {
+  width: fit-content;
+  height: 5rem;
+  padding: 0.3rem 0;
+  color: #74b49b;
+  border-bottom: 2px solid #74b49b;
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Card Blog */
+
+.publications-box {
+  width: 100%;
+  padding: 1.5rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.blogcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 18rem;
+  height: 25rem;
+  background-color: #f9f8eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 1rem;
+}
+.blogcard img {
+  width: 100%;
+  border-radius: 1rem 1rem 0rem 0rem;
+  height: 50%;
+  object-fit: cover;
+}
+.bloginfo {
+  width: 100%;
+  height: 50%;
+  padding: 1.5rem;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bloginfo h4 {
+  width: 100%;
+  font-size: 12pt;
+  font-weight: bold;
+  color: #4d3c5e;
+  text-align: center;
+}
+.bloginfo button {
+  width: 8rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #77628c;
+  align-self: flex-end;
+  border: 1px solid #77628c;
+  border-radius: 15pt;
+  font-weight: 500;
+  color: #f9f8eb;
+  box-shadow: 6px 8px 6px -6px rgb(182, 182, 188);
+  cursor: pointer;
+}
+.bloginfo button:hover {
+  color: #77628c;
+  background-color: #f9f8eb;
+}
+
+/*Details*/
+
+.detail-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+.detailBlog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  background-color: #74b49b4c;
+  border-radius: 0.7rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.detailBlog img {
+  border-radius: 0.6rem;
+  width: 100%;
+  height: 20vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.info-blog {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info-p {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem 0rem;
+  gap: 1rem;
+}
+.info-p p {
+  padding: 1.5rem 0rem;
+  align-items: justify;
+}
+.category-d {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #654881;
+  border: 1px solid #f9f8eb00;
+}
+
+.description-d {
+  background-color: #f9f8eb;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  line-height:1.6rem;
+}
+
+.date-d {
+  text-align: end;
+  font-size: 1rem;
+}
+
+.title-d {
+  font-size: 18pt;
+  font-weight: 600;
+  color: #3b2f47;
+}
+.description-d {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3b2f47;
+}
+.url-d {
+  padding: 1rem;
+  font-size: 1rem;
+  word-break: break-all;
+  text-align: center;
+  border-radius: 0.3rem;
+  background-color: #f9f8eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.062), 0 1px 2px rgba(0, 0, 0, 0.144);
+}
+.linkto {
+  background-color: #77628c;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f9f8eb;
+  border-radius: 0.3rem;
+  align-self: center;
+}
+.linkto:hover {
+  background-color: #f9f8eb;
+  color: #77628c;
+}
+@media screen and (min-width: 768px) {
+  .detailBlog,
+  .mission-Container {
+    width: 80%;
+  }
+  .detailBlog img{
+    height: 60vh;
+  }
+}

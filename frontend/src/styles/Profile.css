@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.profile-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 2rem;
+}
+.profile-div h3{
+    width: fit-content;
+    height: 5rem;
+    padding: 0.3rem 0;
+    color: #74b49b;
+    border-bottom: 2px solid #74b49b;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+.dashboard-top{
+    background-color: #f9f8eb;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 10rem;
+    border-radius: 1rem;
+    flex-wrap: wrap;
+    color: #554b5f;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+.dashboard-top h2{
+    font-size: 15pt;
+    color: #554b5f;
+    font-weight: 700;
+}
+.dashboard-top img{
+    border-radius: .8rem;
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.dashboard-top p{
+    font-weight: 500;
+    font-size: 12pt;
+}
+.button-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f8eb;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+.button-div button{
+    font-size: 12pt;
+    align-self: center;
+    padding: 0.5rem 1rem;
+    background-color: #77628c;
+    border: none;
+    color: #f9f8eb;
+    font-weight: 500;
+    border-radius: .4rem;
+    cursor: pointer;
+    width: fit-content;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.button-div form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.button-div label{
+    align-items: flex-start;
+    width: 95%;
+}
+.button-div input{
+    padding: .5rem .5rem .5rem 2.5rem;
+    border-radius: 3rem;
+    border: none;
+    margin-bottom: 1;
+    width: 100%;
+}
+
+@media screen and (min-width:600px){
+    .dashboard-top{
+        height: 20rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .dashboard-top img{
+        height: 80%;
+        margin: 5%;
+        width: 20%;
+        object-fit: cover;
+
+    }
+    .dashboard-top p{
+        width: 50%;
+        text-align: center;
+    }
+}
